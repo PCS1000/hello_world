@@ -18,16 +18,17 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 < 3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  flutter_svg: ^0.19.0
+  animated_splash: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +51,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - images/original.jpg
+    - images/dark.jpg
+    - images/light.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -75,5 +77,15 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Varela
+      fonts:
+        - asset: fonts/VarelaRound-Regular.otf
+    - family: Modern20
+      fonts:
+        - asset: fonts/Modern No. 20.ttf
+    - family: WinterSans
+      fonts:
+        - asset: fonts/Winter_Sans.otf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

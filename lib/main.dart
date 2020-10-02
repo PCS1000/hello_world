@@ -1,91 +1,43 @@
+import 'package:animated_splash/animated_splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 
 void main() {
   var materialApp = MaterialApp(
-    title: "Contador de Pessos",
-    home: Home(),
+    title: "Hello World",
+    debugShowCheckedModeBanner: false,
+    home: Home1(),
   );
   runApp(materialApp);
 }
 
-class Home extends StatefulWidget {
+class Home1 extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _Home1State createState() => _Home1State();
 }
 
-class _HomeState extends State<Home> {
-  int _people = 0;
-  String _infoText = "Pode entrar";
-
-  void _changePeople(int delta) {
-    setState(() {
-      _people += delta;
-      if (_people < 0) {
-        _infoText = "Mundo invertido";
-      } else if (_people <= 10) {
-        _infoText = "Pode entrar";
-      } else {
-        _infoText = "Lotado";
-      }
-    });
-  }
-
+class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Image.asset(
-          "images/original.jpg",
-          fit: BoxFit.cover,
-          height: 1000.0,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Pessoas: $_people",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: FlatButton(
-                    child: Text(
-                      "+1",
-                      style: TextStyle(fontSize: 40.0, color: Colors.white),
-                    ),
-                    onPressed: () {
-                      _changePeople(1);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: FlatButton(
-                    child: Text(
-                      "-1",
-                      style: TextStyle(fontSize: 40.0, color: Colors.white),
-                    ),
-                    onPressed: () {
-                      _changePeople(-1);
-                    },
-                  ),
-                )
-              ],
-            ),
-            Text(
-              _infoText,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 30.0),
-            )
-          ],
-        )
-      ],
+
+    return AnimatedSplash(
+      imagePath: 'images/light.jpg',
+      home: Home(),
+      duration: 5,
+      type: AnimatedSplashType.StaticDuration,
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return AnimatedSplash(
+      imagePath: 'images/dark.jpg',
+      home: Home1(),
+      duration: 5,
+      type: AnimatedSplashType.StaticDuration,
     );
   }
 }
